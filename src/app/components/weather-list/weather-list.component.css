@@ -1,0 +1,55 @@
+.searchForm {
+    width: 100%;
+    background-color: aqua;
+    text-align: center;
+
+}
+
+.searchForm form {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+
+}
+
+.formInput {
+    width: 70%;
+}
+
+.formInput input {
+    width: 100%;
+    padding: 0.5rem;
+}
+
+.formSubmit {
+    width: 20%;
+}
+
+.formSubmit button {
+    width: 100%;
+    padding: 0.5rem;
+}
+
+.sortByButtons {
+    width: 100%;
+    justify-content: space-between;
+    display: flex;
+    padding: 0.5rem 0;
+}
+
+.sortByButtons button {
+    width: 30%;
+    padding: 0.5rem;
+}
+
+.listCard {
+    background-color: blueviolet;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+.listCard .listCard{
+    width: 30%;
+}
