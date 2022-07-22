@@ -1,39 +1,33 @@
-<div class="container">
+<div class="container" *ngIf="weatherObj.city">
+
     <div class="searchForm">
-        <p style="text-align: center;">Search for location weather</p>
-        <form>
+        <p style="text-align: center;">Weather in {{weatherObj.city.name}}, {{weatherObj.city.country}}</p>
+        <form (ngSubmit)="getWeatherObject(locationInput)">
             <div class="formInput">
-                <input type="text" id="weatherSearch" placeholder="Search">
+                <input type="text" name="locationInput" [(ngModel)]="locationInput" id="weatherSearch"
+                    placeholder="Search">
             </div>
             <div class="formSubmit">
-                <button  type="submit">Search</button>
+                <button type="submit">Search</button>
             </div>
         </form>
     </div>
+
     <div class="sortByButtons">
-        <button>sort1</button>
-        <button>sort2</button>
-        <button>sort3</button>
+        <button (click)="sortButton('dt')">Date</button>
+        <button (click)="sortButton('temp')">Temp</button>
+        <button (click)="sortButton('feels_like')">Feels like</button>
     </div>
-    <div class="allListCards">
-        <div class="listCard">
-            <span>card1-1</span>
-            <span>card1-2</span>
-            <span>card1-3</span>
-            <span>card1-4</span>
-        </div>
 
-        <div class="listCard">
-            <span>card2-1</span>
-            <span>card2-2</span>
-            <span>card2-3</span>
+    <div class="listCard" *ngFor="let weather of weatherObj.list, index as weatherListIndex"
+        (click)="navigate(weatherListIndex)">
+        <div class="listCardDate">
+            <span>{{weather.dt*1000 | date: "long"}}</span>
         </div>
-
-        <div class="listCard">
-            <span>card3-1</span>
-            <span>card3-2</span>
-            <span>card3-3</span>
+        <div>
+            <span>Temp {{weather.main.temp}}</span>
+            <span>feels_like {{weather.main.feels_like}}</span>
         </div>
-
     </div>
+
 </div>

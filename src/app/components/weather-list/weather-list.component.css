@@ -1,8 +1,16 @@
+.container {
+    width: 480px;
+    margin: auto;
+    background-color: red;
+    color: black;
+    padding: 1rem 1rem;
+}
+
 .searchForm {
     width: 100%;
     background-color: aqua;
     text-align: center;
-
+    padding: 1rem 0;
 }
 
 .searchForm form {
@@ -47,9 +55,11 @@
     margin: 0.5rem 0;
     padding: 0.5rem;
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
 }
 
-.listCard .listCard{
-    width: 30%;
+.listCard .listCardDate {
+    width: 100%;
 }

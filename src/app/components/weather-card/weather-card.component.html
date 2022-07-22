@@ -1,1 +1,17 @@
-<p>weather-card works!</p>
+<div *ngIf="weatherObj.city">
+    <p>{{weatherObj.city.name}}</p>
+    <p>{{listArrayIndex}}</p>
+    <button [disabled]="listArrayIndex === 0" (click)="indexChanger(-1)">-</button>
+    <br><span>dt: {{weatherObj.list[listArrayIndex].dt*1000|date:"long"}}</span>
+    <br><span>dt_txt: {{weatherObj.list[listArrayIndex].dt_txt}}</span>
+    <br><span>feels_like: {{weatherObj.list[listArrayIndex].main.feels_like}}</span>
+    <br><span>grnd_level: {{weatherObj.list[listArrayIndex].main.grnd_level}}</span>
+    <br><span>humidity: {{weatherObj.list[listArrayIndex].main.humidity}}</span>
+    <br><span>pressure: {{weatherObj.list[listArrayIndex].main.pressure}}</span>
+    <br><span>sea_level: {{weatherObj.list[listArrayIndex].main.sea_level}}</span>
+    <br><span>temp: {{weatherObj.list[listArrayIndex].main.temp}}</span>
+    <br><span>temp_kf: {{weatherObj.list[listArrayIndex].main.temp_kf}}</span>
+    <br><span>temp_max: {{weatherObj.list[listArrayIndex].main.temp_max}}</span>
+    <br><span>temp_min: {{weatherObj.list[listArrayIndex].main.temp_min}}</span>
+    <br><button [disabled]="listArrayIndex === (weatherObj.list.length-1)" (click)="indexChanger(+1)">+</button>
+</div>
