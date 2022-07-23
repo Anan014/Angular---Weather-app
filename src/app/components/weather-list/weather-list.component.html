@@ -1,54 +1,63 @@
 <div class="container" *ngIf="weatherObj.city">
 
     <div class="searchForm">
-        <p style="text-align: center;">Weather in {{weatherObj.city.name}}, {{weatherObj.city.country}}</p>
+        <p *ngIf="!invaledInput">Weather in
+            {{weatherObj.city.name}}, {{weatherObj.city.country}}</p>
+        <p *ngIf="invaledInput" style="color: red;">Location not found</p>
         <form (ngSubmit)="getWeatherObject(locationInput)">
             <div class="formInput">
                 <input type="text" name="locationInput" [(ngModel)]="locationInput" id="weatherSearch"
                     placeholder="Search">
             </div>
             <div class="formSubmit">
-                <button type="submit">Search</button>
+                <button [disabled]="locationInput.toUpperCase()===lastInput.toUpperCase()" type="submit">Search</button>
             </div>
         </form>
     </div>
 
-    <div class="sortByButtons">
-        <span>Sort </span>
-        <button (click)="sortButton('dt')">Date</button>
-        <button (click)="sortButton('temp')">Tempreature</button>
-        <button (click)="sortButton('feels_like')">Feels like</button>
-        <button (click)="sortButton('humidity')">Humidity</button>
-    </div>
-    
-    <!-- [style.background-image]=" 'url(./assets/' +  weather.weather[0].icon + '.jpg)' " -->
-    <div class="listCard" *ngFor="let weather of weatherObj.list, index as weatherListIndex"
-        (click)="navigate(weatherListIndex)">
-        <div class="listCardDate">
-            <p>{{weather.dt*1000 | date: "long"}}</p>
+    <hr>
+
+    <div *ngIf="!invaledInput">
+        <p class="sortByTitle">Sort by</p>
+
+
+        <div class="sortByButtons">
+            <button (click)="sortButton('dt')">Date</button>
+            <button (click)="sortButton('temp')">Tempreature</button>
+            <button (click)="sortButton('feels_like')">Feels like</button>
+            <button (click)="sortButton('humidity')">Humidity</button>
         </div>
 
-        <div class="weatherValues">
-            <span class="dataSpan"><img src='{{"http://openweathermap.org/img/wn/" + weather.weather[0].icon+ ".png"}}'
-                    alt=""></span>
+        <!-- [style.background-image]=" 'url(./assets/' +  weather.weather[0].icon + '.jpg)' " -->
+        <div class="listCard" *ngFor="let weather of weatherObj.list, index as weatherListIndex"
+            (click)="navigate(weatherListIndex)">
+            <div class="listCardDate">
+                <p>{{weather.dt*1000 | date: "long"}}</p>
+            </div>
 
-            <span class="descriptionSpan">
-                <p>
-                    {{upperCaseWeatherDescription(weather.weather[0].description)}}
-                </p>
-            </span>
+            <div class="weatherValues">
+                <span class="dataSpan"><img
+                        src='{{"http://openweathermap.org/img/wn/" + weather.weather[0].icon+ ".png"}}' alt=""></span>
 
-            <span class="dataSpan">
-                <p>{{weather.main.temp !== undefined?(weather.main.temp | number : '.2-2' ) + "°" : ""}}</p>
-            </span>
+                <span class="descriptionSpan">
+                    <p>
+                        {{upperCaseWeatherDescription(weather.weather[0].description)}}
+                    </p>
+                </span>
 
-            <span class="dataSpan">
-                <p>{{weather.main.feels_like !== undefined?(weather.main.feels_like | number : '.2-2' ) + "°" : ""}}</p>
-            </span>
+                <span class="dataSpan">
+                    <p>{{weather.main.temp !== undefined?(weather.main.temp | number : '.2-2' ) + "°" : ""}}</p>
+                </span>
 
-            <span class="dataSpan">
-                <p>{{weather.main.humidity + "%"}}</p>
-            </span>
+                <span class="dataSpan">
+                    <p>{{weather.main.feels_like !== undefined?(weather.main.feels_like | number : '.2-2' ) + "°" : ""}}
+                    </p>
+                </span>
+
+                <span class="dataSpan">
+                    <p>{{weather.main.humidity + "%"}}</p>
+                </span>
+            </div>
         </div>
     </div>
 

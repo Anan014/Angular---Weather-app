@@ -1,5 +1,3 @@
-
-
 p {
     text-align: center;
 }
@@ -46,6 +44,15 @@ p {
 .formSubmit button {
     width: 100%;
     border-radius: 0 8px 8px 0;
+    cursor: pointer;
+}
+
+.searchForm .formSubmit button:disabled {
+    cursor: not-allowed;
+}
+
+.sortByTitle {
+    padding-top: 0.5rem;
 }
 
 .sortByButtons {
@@ -72,6 +79,7 @@ p {
     border-radius: 8px;
     box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
     /* background-image: url("./assets/01d.jpg"); */
+    cursor: pointer;
 }
 
 .listCard p {

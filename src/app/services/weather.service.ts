@@ -10,11 +10,12 @@ import { list, Weather } from '../interfaces/weather.interface';
 export class WeatherService {
 
   constructor(private http: HttpClient) { }
-  locationInput = 'israel';
+  locationInput = 'Israel';
   listArrayIndex: number = 0;
   weatherList: list[] = [];
   allWeatherObject: Weather = {} as Weather;
   sortFocus:string ='dt';
+  lastInput = 'Israel';
 
   getWeather(location: string) {
     return this.http.get<Weather>(environment.weatherApiUrl, {

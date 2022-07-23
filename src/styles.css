@@ -38,7 +38,7 @@ button {
 }
 
 button:hover {
-  background-color: #e7f0f0 ;
+  background-color: #e7f0f0;
 }
 
 button:focus {
@@ -54,4 +54,5 @@ button:disabled {
   outline: 0;
   background-color: rgba(213, 217, 217, .5);
   opacity: 0.5;
+  cursor: not-allowed !important;
 }

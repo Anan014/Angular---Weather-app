@@ -32,7 +32,7 @@ hr {
 .weatherDataContainer {
     width: 100%;
     padding: 0.75rem;
-    border-radius: 8px 0 0 8px;
+    border-radius: 8px;
     /* background-color: #fff; */
     border: 1px solid #d5d9d9;
     box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;

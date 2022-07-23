@@ -30,6 +30,26 @@
             <div class="todayDetails">
                 <span>
                     <p>
+                        Feels like
+                    </p>
+                </span>
+            </div>
+            <div class="todayValue">
+                <span>
+                    <p>
+                        {{weatherObj.list[listArrayIndex].main.feels_like !==
+                        undefined?(weatherObj.list[listArrayIndex].main.feels_like
+                        | number : '.2-2' ) + "°" : ""}}
+                    </p>
+                </span>
+            </div>
+        </div>
+
+        <hr>
+        <div class="todayData">
+            <div class="todayDetails">
+                <span>
+                    <p>
                         Lowest Temperature
                     </p>
                 </span>
@@ -95,7 +115,79 @@
             <div class="todayValue">
                 <span>
                     <p>
-                        {{weatherObj.list[listArrayIndex].main.sea_level + "hpa"}}
+                        {{weatherObj.list[listArrayIndex].main.sea_level + " hpa"}}
+                    </p>
+                </span>
+            </div>
+        </div>
+
+        <hr>
+        <div class="todayData">
+            <div class="todayDetails">
+                <span>
+                    <p>
+                        Humidity
+                    </p>
+                </span>
+            </div>
+            <div class="todayValue">
+                <span>
+                    <p>
+                        {{weatherObj.list[listArrayIndex].main.humidity + "%"}}
+                    </p>
+                </span>
+            </div>
+        </div>
+
+        <hr>
+        <div class="todayData">
+            <div class="todayDetails">
+                <span>
+                    <p>
+                        Wind speed
+                    </p>
+                </span>
+            </div>
+            <div class="todayValue">
+                <span>
+                    <p>
+                        {{weatherObj.list[listArrayIndex].wind.speed + " km/h"}}
+                    </p>
+                </span>
+            </div>
+        </div>
+
+        <hr>
+        <div class="todayData">
+            <div class="todayDetails">
+                <span>
+                    <p>
+                        Wind degree
+                    </p>
+                </span>
+            </div>
+            <div class="todayValue">
+                <span>
+                    <p>
+                        {{weatherObj.list[listArrayIndex].wind.deg + "°"}}
+                    </p>
+                </span>
+            </div>
+        </div>
+
+        <hr>
+        <div class="todayData">
+            <div class="todayDetails">
+                <span>
+                    <p>
+                        Visibility
+                    </p>
+                </span>
+            </div>
+            <div class="todayValue">
+                <span>
+                    <p>
+                        {{weatherObj.list[listArrayIndex].visibility + " km"}}
                     </p>
                 </span>
             </div>

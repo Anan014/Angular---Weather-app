@@ -18,7 +18,7 @@ export class WeatherCardComponent implements OnInit {
   forwardButton = false;
 
   ngOnInit(): void {
-    if (!this.weatherObj.city.id) {
+    if (!this.weatherObj?.city?.id) {
       this.getWeatherObject(this.WeatherService.locationInput);
       console.log(this.weatherObj.city.id)
       console.log(!this.weatherObj.city.id)
