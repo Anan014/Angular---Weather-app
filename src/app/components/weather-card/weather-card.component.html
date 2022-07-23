@@ -2,7 +2,7 @@
 
     <div class="buttonsAndDate">
         <button [disabled]="listArrayIndex === 0" (click)="indexChanger(-1)">Previous</button>
-        <p>{{weatherObj.list[listArrayIndex].dt*1000|date:"long"}}</p>
+        <p>{{weatherObj.list[listArrayIndex].dt_txt}}</p>
         <button [disabled]="listArrayIndex === (weatherObj.list.length-1)" (click)="indexChanger(+1)">Next</button>
     </div>
 

@@ -32,7 +32,7 @@
         <div class="listCard" *ngFor="let weather of weatherObj.list, index as weatherListIndex"
             (click)="navigate(weatherListIndex)">
             <div class="listCardDate">
-                <p>{{weather.dt*1000 | date: "long"}}</p>
+                <p>{{weather.dt_txt}}</p>
             </div>
 
             <div class="weatherValues">
