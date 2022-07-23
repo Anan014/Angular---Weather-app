@@ -28,12 +28,12 @@ export class WeatherListComponent implements OnInit {
   }
 
   getWeatherObject(data: string) {
-    console.log('data', data);
+    //console.log('data', data);
     this.WeatherService.getWeather(data).pipe(
       // tap(res => console.log('List-getWeatherObject-pipe', res.city))
     )
       .subscribe(res => {
-        console.log(res);
+        //console.log(res);
         this.weatherObj = res
         this.WeatherService.allWeatherObject = res;
         this.WeatherService.locationInput = res.city.name;
@@ -42,40 +42,39 @@ export class WeatherListComponent implements OnInit {
 
         this.WeatherService.lastInput = res.city.name;
         this.lastInput = res.city.name;
-        console.log('this.WeatherService.lastInput', this.WeatherService.lastInput);
-        console.log('this.WeatherService.locationInput', this.WeatherService.locationInput);
+        //console.log('this.WeatherService.lastInput', this.WeatherService.lastInput);
+        //console.log('this.WeatherService.locationInput', this.WeatherService.locationInput);
 
       },
         err => {
-          console.log('HTTP Error', err)
+          //console.log('HTTP Error', err)
           this.invaledInput = true;
           this.WeatherService.lastInput = this.locationInput;
           this.WeatherService.locationInput = this.locationInput;
           this.lastInput = this.locationInput;
 
-          console.log('this.WeatherService.lastInput', this.WeatherService.lastInput);
-          console.log('this.WeatherService.locationInput', this.WeatherService.locationInput);
+          //console.log('this.WeatherService.lastInput', this.WeatherService.lastInput);
+          //console.log('this.WeatherService.locationInput', this.WeatherService.locationInput);
 
-          console.log('this.lastInput', this.lastInput);
-          console.log('this.locationInput', this.locationInput);
+          //console.log('this.lastInput', this.lastInput);
+          //console.log('this.locationInput', this.locationInput);
         }
       )
   }
 
   sortButton(sortBy: string) {
-    console.log("sortby:",sortBy)
     this.WeatherService.allWeatherObject.list =
       this.WeatherService.allWeatherObject.list.sort((a, b) => {
         return sortBy === "temp" ? a.main.temp - b.main.temp :
           sortBy === "feels_like" ? a.main.feels_like - b.main.feels_like :
-        sortBy === "humidity" ? (a.main.humidity - b.main.humidity , console.log(sortBy)) : a.dt - b.dt;
+        sortBy === "humidity" ? a.main.humidity - b.main.humidity : a.dt - b.dt;
       });
     this.weatherObj.list = this.WeatherService.allWeatherObject.list;
   }
 
   navigate(weatherListIndex: number) {
     this.WeatherService.listArrayIndex = weatherListIndex;
-    console.log('List-navigate-weatherListIndex', weatherListIndex);
+    //console.log('List-navigate-weatherListIndex', weatherListIndex);
     this.router.navigateByUrl('/weather-card')
   }
 
