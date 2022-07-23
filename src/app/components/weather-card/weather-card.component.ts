@@ -20,13 +20,13 @@ export class WeatherCardComponent implements OnInit {
   ngOnInit(): void {
     if (!this.weatherObj?.city?.id) {
       this.getWeatherObject(this.WeatherService.locationInput);
-      console.log(this.weatherObj.city.id)
-      console.log(!this.weatherObj.city.id)
+      //console.log(this.weatherObj.city.id)
+      //console.log(!this.weatherObj.city.id)
     }
     this.listArrayIndex = this.WeatherService.listArrayIndex;
-    console.log("card-ngOnInit-listArrayIndex", this.listArrayIndex);
-    console.log("card-ngOnInit-allWeatherObject", this.WeatherService.allWeatherObject);
-    console.log("card-ngOnInit-weatherObj", this.weatherObj);
+    //console.log("card-ngOnInit-listArrayIndex", this.listArrayIndex);
+    //console.log("card-ngOnInit-allWeatherObject", this.WeatherService.allWeatherObject);
+    //console.log("card-ngOnInit-weatherObj", this.weatherObj);
   }
 
   getWeatherObject(data: string) {
