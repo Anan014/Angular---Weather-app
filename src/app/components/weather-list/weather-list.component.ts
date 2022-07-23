@@ -66,7 +66,8 @@ export class WeatherListComponent implements OnInit {
     this.WeatherService.allWeatherObject.list =
       this.WeatherService.allWeatherObject.list.sort((a, b) => {
         return sortBy === "temp" ? a.main.temp - b.main.temp :
-          sortBy === "feels_like" ? a.main.feels_like - b.main.feels_like : a.dt - b.dt
+          sortBy === "feels_like" ? a.main.feels_like - b.main.feels_like :
+        sortBy === "humidity" ? a.main.humidity - b.main.humidity : a.dt - b.dt;
       });
     this.weatherObj.list = this.WeatherService.allWeatherObject.list;
   }
