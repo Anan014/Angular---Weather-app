@@ -10,21 +10,23 @@ import { Router } from '@angular/router';
   styleUrls: ['../../app.component.css', './weather-list.component.css']
 })
 
-//TODO 1: ngOnInit back from card list to save sort by,
-//TODO 2: CSS  
-//TODO 3: 
-//TODO 4:  
+//TODO 1: CSS  
+//TODO 2: location undefined
+//TODO 3:  
 
 export class WeatherListComponent implements OnInit {
 
-  locationInput: string = '';
-  weatherObj: Weather = {} as Weather
+  locationInput: string = this.WeatherService.locationInput;
+  weatherObj: Weather = this.WeatherService.allWeatherObject;
 
   constructor(private WeatherService: WeatherService, private router: Router) {
-    this.locationInput = WeatherService.locationInput
+    // this.locationInput = WeatherService.locationInput
   }
+
   ngOnInit(): void {
-    this.getWeatherObject(this.locationInput)
+    if (!this.weatherObj.city) { // checks if the weatherObj doesn't have data to prevent calling the API (after sorting)
+      this.getWeatherObject(this.WeatherService.locationInput);
+    }
   }
 
   getWeatherObject(data: string) {
@@ -33,6 +35,8 @@ export class WeatherListComponent implements OnInit {
       // tap(res => console.log('List-getWeatherObject-pipe', res.city))
     )
       .subscribe(res => {
+        console.log(res);
+        
         this.weatherObj = res
         this.WeatherService.allWeatherObject = res;
         this.WeatherService.locationInput = data;
@@ -41,15 +45,13 @@ export class WeatherListComponent implements OnInit {
       )
   }
 
-  sortButton(sortBy: string) {
-    console.log(this.WeatherService.allWeatherObject.list[0].dt)
+  sortButton(sortBy: string) {  
     this.WeatherService.allWeatherObject.list =
       this.WeatherService.allWeatherObject.list.sort((a, b) => {
         return sortBy === "temp" ? a.main.temp - b.main.temp :
           sortBy === "feels_like" ? a.main.feels_like - b.main.feels_like : a.dt - b.dt
       });
     this.weatherObj.list = this.WeatherService.allWeatherObject.list;
-    console.log(this.WeatherService.allWeatherObject.list[0].dt)
   }
 
   navigate(weatherListIndex: number) {
@@ -57,4 +59,9 @@ export class WeatherListComponent implements OnInit {
     console.log('List-navigate-weatherListIndex', weatherListIndex);
     this.router.navigateByUrl('/weather-card')
   }
+
+  upperCaseWeatherDescription(weatherDescription:string){
+    return weatherDescription.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.substring(1)).join(' ');
+  }
+
 }

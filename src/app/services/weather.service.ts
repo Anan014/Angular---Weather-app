@@ -14,6 +14,7 @@ export class WeatherService {
   listArrayIndex: number = 0;
   weatherList: list[] = [];
   allWeatherObject: Weather = {} as Weather;
+  sortFocus:string ='dt';
 
   getWeather(location: string) {
     return this.http.get<Weather>(environment.weatherApiUrl, {

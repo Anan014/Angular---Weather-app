@@ -1,0 +1,54 @@
+.buttonsAndDate {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.buttonsAndDate button {
+    width: 15%;
+}
+
+.buttonsAndDate p {
+    width: 70%;
+    text-align: center;
+}
+
+hr {
+    margin: 0.5rem 0;
+}
+
+.iconAndTemp {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.iconAndTemp p {
+    font-size: 3rem;
+}
+
+.weatherDataContainer {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 8px 0 0 8px;
+    /* background-color: #fff; */
+    border: 1px solid #d5d9d9;
+    box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+    box-sizing: border-box;
+    color: #0f1111;
+}
+
+.todayData {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 1rem;
+    padding: 0.5rem;
+}
+
+.todayData .todayDetails{
+    display: flex;
+    
+}

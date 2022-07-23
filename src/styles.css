@@ -1,7 +1,57 @@
 /* You can add global styles to this file, and also import other style files */
-*,html,
+*,
+html,
 body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: #FBFBFD;
+  /* mix-blend-mode: multiply; */
+}
+
+.container {
+  width: 480px;
+  margin: auto;
+  color: black;
+  padding: 1rem 1rem;
+}
+
+button {
+  background-color: #fff;
+  border: 1px solid #d5d9d9;
+  border-radius: 8px;
+  box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+  box-sizing: border-box;
+  color: #0f1111;
+  cursor: pointer;
+  display: inline-block;
+  padding: 0.75rem 0;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  width: 100px;
+}
+
+button:hover {
+  background-color: #e7f0f0 ;
+}
+
+button:focus {
+  border-color: #008296;
+  box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+  outline: 0;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+  box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+  outline: 0;
+  background-color: rgba(213, 217, 217, .5);
+  opacity: 0.5;
 }
