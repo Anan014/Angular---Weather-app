@@ -17,6 +17,13 @@ body {
   padding: 1rem 1rem;
 }
 
+@media screen and (max-width: 479px){
+  .container {
+    width: 370px;
+    padding: 0.5rem 0.5rem;
+  }
+}
+
 button {
   background-color: #fff;
   border: 1px solid #d5d9d9;
