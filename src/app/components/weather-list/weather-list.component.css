@@ -96,6 +96,17 @@ p {
     justify-content: space-between;
 }
 
+@media screen and (max-width: 479px) {
+    .feelsLikeNone {
+        display: none;
+    }
+
+    .sortByButtons button {
+        width: 30%;
+        padding: 0.75rem 0.1rem;
+    }
+}
+
 .listCard .weatherValues .descriptionSpan {
     width: 40%;
 }
